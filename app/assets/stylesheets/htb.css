@@ -27,6 +27,12 @@ a:hover {
 .content-wrap {
   width:100%;padding:33px;
 }
+ul {
+  list-style-type:none;
+}
+ul li {
+  margin:10px 0;
+}
 /* SPECIFIC */
 #homepage_intro {
     background-image: url(https://timedotcom.files.wordpress.com/2017/07/owning-dog-happy.jpg);
@@ -39,4 +45,10 @@ a:hover {
 }
 #homepage_intro h1, #homepage_intro p {
   color:white;
+}
+#homepage_intro h1 {
+    margin-top: 222px;
+}
+#homepage_intro p {
+  font-style:italic;
 }
