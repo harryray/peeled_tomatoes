@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+<div id="projects_holder">
+  <% @projects.each do |project| %>
+    <a href="/projects/<%= project.id %>" class="idea">
+        <i class="<%= project.icon %>"></i>
+        <h2><%= project.title %></h2>
+    </a>
+  <% end %>
+</div>
+<br>
+
+<%= link_to 'New Project', new_project_path %>

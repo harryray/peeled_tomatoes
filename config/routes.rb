@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :italian_style
-  resources :tesco_finest
-  resources :sainsburys_own
+  resources :build_a_duck
+  resources :projects
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "application#index"
+  
 end

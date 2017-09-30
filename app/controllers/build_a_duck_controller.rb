@@ -1,0 +1,3 @@
+class BuildADuckController < ApplicationController
+  
+end

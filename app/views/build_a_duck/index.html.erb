@@ -1,0 +1,117 @@
+<style>
+  html,body {
+    overflow:hidden;
+  }
+  #bad_splash {
+    min-height:100vh;width:100vw;font-size:2em;text-align:center;padding-top:30vh;box-sizing:border-box;background-image: radial-gradient(circle, #FFE333 0, #d89d23 120%);
+  }
+  #bad_splash h1 {
+    font-size:3em;color: #a06800;
+  }
+  #bad_splash p.next_section {
+      display: inline-block;
+      color: #ffffff;
+      font-size: 0.8em;
+      cursor:pointer;
+  }
+  .form_section {
+    display:none;
+  }
+  #form_begin {
+    display:block;
+  }
+</style>
+<div class="bad_body">
+  <div id="bad_splash">
+    <div class="form_section" id="form_begin">
+      <h1>build a duck</h1>
+      <p class="next_section not_submit" data-section="details">begin</p>
+    </div>
+    <form>
+      <div class="form_section" id="details">
+        <h2>First things first...</h2>
+        <input type="text" name="name" placeholder="who are you?" />
+        <input type="email" name="email" placeholder="what's your email address?" />
+        <p class="next_section" data-section="size">next</p>
+      </div>
+      <div class="form_section" id="size">
+        <h2>Size matters...</h2>
+        <input type="radio" name="size" value="small">Small</input>
+        <input type="radio" name="size" value="medium">Medium</input>
+        <input type="radio" name="size" value="large">Large</input>
+        <p class="next_section" data-section="material">next</p>
+      </div>
+      <div class="form_section" id="material">
+        <h2>Show me what you're made of!</h2>
+        <input type="radio" name="material" value="wood">Wood</input>
+        <input type="radio" name="material" value="rubber">Rubber</input>
+        <input type="radio" name="material" value="plastic">Plastic</input>
+        <p class="next_section" data-section="colour">next</p>
+      </div>
+      <div class="form_section" id="colour">
+        <h2>Can't think of anything witty.</h2>
+        <!-- Should probably come with a few standards and then a custom colour picker option -->
+        <input type="radio" name="colour" value="black">Black</input>
+        <input type="radio" name="colour" value="yellow">Yellow</input>
+        <input type="radio" name="colour" value="red">Red</input>
+        <p class="next_section" data-section="accessories">next</p>
+      </div>
+      <div class="form_section" id="accessories">
+        <h2>Pimp my Duck!</h2>
+        <!-- Radio Buttons (Sectioned) -->
+          <h3>Up top</h3>
+          <input type="radio" name="accessories_hat" value="spike_helm">Spiked Helmet</input>
+          <input type="radio" name="accessories_hat" value="top_hat">Top Hat</input>
+          <input type="radio" name="accessories_hat" value="devil_horns">Devil Horns</input>
+          <h3>Hungry Eyes</h3>
+          <input type="radio" name="accessories_eyewear" value="goggles">Goggles</input>
+          <input type="radio" name="accessories_eyewear" value="glasses">Glasses</input>
+          <input type="radio" name="accessories_eyewear" value="zoro">Zoro Mask</input>
+          <h3>Weird Beard</h3>
+          <input type="radio" name="accessories_facial_hair" value="moustache">Moustache</input>
+          <input type="radio" name="accessories_facial_hair" value="beard">Beard</input>
+          <input type="radio" name="accessories_facial_hair" value="soul_patch">Soul Patch</input>
+        <p class="next_section" data-section="complete">next</p>
+      </div>
+      <div class="form_section" id="complete">
+        <h2>Complete!</h2>
+        <input type="submit" value="Make My Duck!" />
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    // The Declaration of Variables
+    var quote = {};
+    
+    // Goto Next Section
+    $("p.next_section").on("click",function(e){
+      $(this).parents("div.form_section").fadeOut(300);
+      $("div#"+$(this).attr("data-section")).fadeIn(300);
+    })
+    
+    // Build Quote String
+    $("p.next_section").on("click",function(e){
+      $parent_div = $(this).parents("div.form_section");
+      $($parent_div).children("input").each(function(){
+        //Text Fields
+        if(($(this).attr("type") == "text")||($(this).attr("type") == "email")){
+          quote[$(this).attr("name")] = $(this).val();
+        }
+        //Radio Buttons
+        else if (($(this).attr("type") == "radio")&&($(this).is(":checked"))){
+          quote[$(this).attr("name")] = $(this).val();
+        }
+      })
+    })
+    
+    // "Complete" Screen
+    $("p.next_section[data-section='complete'").on("click",function(){
+      console.log(quote);
+      quote = JSON.stringify(quote);
+      console.log(quote);
+    })
+    
+  })
+</script>
