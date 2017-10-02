@@ -112,10 +112,9 @@
       $.ajax ({
         method: "POST",
         url: "https://rails-tutorial-harryray.c9users.io/build_a_duck/calculate",
-        data: {"quote": quote, authenticity_token: window._token},
-        success: function(data){
-          console.log("AJAX call successful. Returned: ");
-          console.info(data);
+        data: {"payload": "chickenshit", authenticity_token: window._token},
+        success: function(){
+          console.log("AJAX call successful.")
         }
       })
     })

@@ -8,6 +8,9 @@
     <%= stylesheet_link_tag    'htb', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'jquery', 'data-turbolinks-track': 'reload' %>
+    
+    <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+    
     <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto:500" rel="stylesheet">
     <script src="https://use.fontawesome.com/a233143578.js"></script>
   </head>
