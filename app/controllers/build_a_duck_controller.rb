@@ -12,18 +12,24 @@ class BuildADuckController < ApplicationController
     accessories = "#{accessories_hat}, #{accessories_eyewear}, #{accessories_facial_hair}"
     
     # Calculate price
-    @price = 5.00
+    @base_price = 5.00
+    if "material" == "rubber" then
+      @price = @base_price*1
+    end
     if "material" == "wood" then
-      @price = @price*2.50
+      @price = @base_price*2.50
     end
     if "material" == "plastic" then
-      @price = @price*0.80
+      @price = @base_price*0.80
+    end
+    if "size" == "small" then
+     @price = @base_price*1
     end
     if "size" == "medium" then
-     @price = @price*1.25
+     @price = @base_price*1.25
     end
     if "size" == "large" then
-     @price = @price*1.50
+     @price = @base_price*1.50
     end
     
     quote = ["size": size,"material": material,"colour": colour,"accessories": accessories,"price": @price]
