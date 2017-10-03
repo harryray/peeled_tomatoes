@@ -26,9 +26,9 @@ class BuildADuckController < ApplicationController
      @price = @price*1.50
     end
     
-    quote = ["size": size,"material": material,"colour": colour,"accessories": accessories,"price": @price]
+    #quote = ["size": size,"material": material,"colour": colour,"accessories": accessories,"price": @price]
     
     
-    render json: quote
+    render json: @price
   end
 end
