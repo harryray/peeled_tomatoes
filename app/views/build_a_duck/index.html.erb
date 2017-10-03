@@ -111,7 +111,7 @@
       quote = JSON.stringify(quote);
       $.ajax ({
         method: "POST",
-        url: "https://donkey-foot.herokuapp.com/build_a_duck/calculate",
+        url: "https://rails-tutorial-harryray.c9users.io/build_a_duck/calculate",
         data: {"quote": quote, authenticity_token: window._token},
         success: function(data){
           console.log("AJAX call successful. Returned: ");
