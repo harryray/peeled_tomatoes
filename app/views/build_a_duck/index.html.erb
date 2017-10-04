@@ -114,9 +114,10 @@
         url: "https://donkey-foot.herokuapp.com/build_a_duck/calculate",
         data: {"quote": quote, authenticity_token: window._token},
         success: function(data){
-          console.log("AJAX call successful. Returned: ");
-          console.info(data);
           $("h2").after("<p>Ding! Your duck is ready to order - here's how much you'll be paying:</p><h3>£"+ data +"</h3>");
+        }
+        error: function(data){
+          console.log(data);
         }
       })
     })
